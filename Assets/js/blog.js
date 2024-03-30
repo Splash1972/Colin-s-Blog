@@ -18,4 +18,24 @@ themeSwitcher.addEventListener('click', function () {
   }
 });
 
-const backButton = document.querySelector('#back-button');
+const blogPost = {
+  userBox: "John Doe", // Example data, replace with your actual data
+  titleBox: "My Blog Post",
+  commentBox: "This is the content of my blog post.",
+};
+
+// Update the HTML elements with the information from the blogPost object
+document.getElementById("user").textContent = blogPost.userBox;
+document.getElementById("title").textContent = blogPost.titleBox;
+document.getElementById("comment").textContent = blogPost.commentBox;
+
+
+// commentBox.value = '';
+// titleBox.value = '';
+// userBox.value = '';
+
+const backButton = document.getElementById('back-button');
+
+backButton.addEventListener('click', function() {
+    location.href = 'index.html';
+});
