@@ -18,24 +18,18 @@ themeSwitcher.addEventListener('click', function () {
   }
 });
 
-const blogPost = {
-  userBox: "John Doe", // Example data, replace with your actual data
-  titleBox: "My Blog Post",
-  commentBox: "This is the content of my blog post.",
-};
+const displayBlogPost = localStorage.getItem('titleBox') || 'No stored value';
 
-// Update the HTML elements with the information from the blogPost object
-document.getElementById("user").textContent = blogPost.userBox;
-document.getElementById("title").textContent = blogPost.titleBox;
-document.getElementById("comment").textContent = blogPost.commentBox;
+// Create a new element and add the stored blog post to its text content
+const newElement = document.createElement('p');
+newElement.textContent = displayBlogPost || 'No stored value';
 
+const displayArea = document.getElementById('displayArea');
+displayArea.appendChild(newElement);  
 
-// commentBox.value = '';
-// titleBox.value = '';
-// userBox.value = '';
 
 const backButton = document.getElementById('back-button');
 
-backButton.addEventListener('click', function() {
-    location.href = 'index.html';
+backButton.addEventListener('click', function () {
+  location.href = 'index.html';
 });
