@@ -18,15 +18,26 @@ themeSwitcher.addEventListener('click', function () {
   }
 });
 
-const displayBlogPost = localStorage.getItem('titleBox') || 'No stored value';
+// Get the data from local storage
+const blogPosts = JSON.parse(localStorage.getItem("titleBox"));
 
-// Create a new element and add the stored blog post to its text content
-const newElement = document.createElement('p');
-newElement.textContent = displayBlogPost || 'No stored value';
+// Get the container element to display the blog posts
+const newContainer = document.getElementById("blogPosts");
 
-const displayArea = document.getElementById('displayArea');
-displayArea.appendChild(newElement);  
+// Loop through the blog posts array and create HTML elements for each post
+blogPosts.forEach(post => {
+    // Create a new div element for each post
+    const postDiv = document.createElement("div");
 
+    postDiv.innerHTML = `
+        <h2>User: ${post.userBox}</h2>
+        <h3>Title: ${post.titleBox}</h3>
+        <p>Comment: ${post.commentBox}</p>
+    `;
+
+    // Append the post div to the container
+    newContainer.appendChild(postDiv);
+});
 
 const backButton = document.getElementById('back-button');
 
